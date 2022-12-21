@@ -1,9 +1,9 @@
- "sammy" =[{
+var sammy = [
+  {
+    first_name: ["Sammy"],
 
-    "first_name" : ["Sammy"],
-    
-    "last_name" : "Shark",
-    
-    "online" : true
-    
-    }]
+    last_name: "Shark",
+
+    online: true,
+  },
+];

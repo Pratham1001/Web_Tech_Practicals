@@ -1,9 +1,7 @@
-var sammy = [
-  {
-    first_name: ["Sammy"],
+module.exports = {
+  first_name: ["Sammy"],
 
-    last_name: "Shark",
+  last_name: "Shark",
 
-    online: true,
-  },
-];
+  online: true,
+};

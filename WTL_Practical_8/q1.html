@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+<body>
+    <div ng-app="" ng-init="multiply=[0,1,2,3,4,5,6,7,8,9,10]">
+        <p>PLEASE ENTER A NUMBER: <input type="text" ng-model="number"></p>
+        <p>MULTIPLICATION TABLE :</p>
+        <p ng-repeat="x in multiply">
+            {{number * x }}
+        </p>
+    </div>
+</body>
+
+</html>

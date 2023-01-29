@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<!-- empid, name, salary, doj -->
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+<div ng-app="myApp" ng-controller="myCtrl">
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('myCtrl', function($scope) {
+            $scope.employees = [
+            {id:1,name:"Sam Bankman Fried", sal:2000,doj:"Jan 5,2019"},        
+            {id:2,name:"Eric Durance", sal:5000,doj:"Jan 5,2019"},
+            {id:3,name:"Bread Miller", sal:9000,doj:"Jan 5,2010"},    
+            {id:4,name:"Chloe Decker", sal:9333,doj:"Jan 5,2016"},
+            {id:5,name:"Lana Lang", sal:7555,doj:"Jan 5,2009"},
+            ]});
+        app.filter('ordinal',()=>(number)=>{
+            if (isNaN(number) || number<1){
+                return number;
+            }
+            var lastDigit = number%10;
+            if(lastDigit === 1) {
+                return number + 'st'
+            } else if(lastDigit === 2) {
+                return number + 'nd'
+            } else if (lastDigit === 3) {
+                return number + 'rd'
+            } else {
+                return number + 'th'
+            }
+            });
+</script>
+<table>
+    <tr>
+        <th>
+            Employee ID
+        </th>
+        <th>Employee Name</th>
+        <th>Salary</th>
+        <th>Date Of joining</th>
+    </tr>
+    <tr ng-repeat="emp in employees | orderBy: 'id' | limitTo: 3">
+        <td>{{emp.id | ordinal}}</td>
+    <td>{{emp.name | uppercase}}</td>
+    <td>{{emp.sal | currency : 'GBP'}}</td>
+    <td>{{emp.doj | date: 'shortDate'}}</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

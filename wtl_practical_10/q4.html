@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+<body ng-app="myApp">
+<P>ELEMENT METHOD:</P>
+<my-test-directive></my-test-directive>
+<P>ATTRIBUTE METHOD:</P>
+<div my-test-directive>called by Attribute method</div>
+<script>
+var app = angular.module("myApp", []);
+app.directive("myTestDirective", function() {
+return {
+
+template : "<h4>Hey Pratham here this is a custom made directive!</h4>"
+};
+
+});
+</script>
+</body>
+</html>

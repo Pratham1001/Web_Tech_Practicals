@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head><script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script></head>
+<body>
+<div ng-app="" 
+ng-init="emp=[
+{id:1,name:'sree',salary:200000,DOJ:'AUG 27, 2001'},
+{id:2,name:'rahul',salary:400000,DOJ:'JUL 24, 2001'},
+{id:3,name:'ShapedCharge',salary:80000,DOJ:'NOV 21, 2004'},
+{id:4,name:'starboy',salary:290000,DOJ:'MAR 30, 2008'},
+{id:5,name:'Theta',salary:280000,DOJ:'MAY 30, 2011'}]">
+<p>APPLYING UPPERCASE FILTER</p>
+<ul>
+    <li ng-repeat="x in emp">
+     {{x.name | uppercase }}
+    </li>
+</ul>
+
+<p>APPLYING CURRENCY FILTER</p>
+<ul>
+    <li ng-repeat="x in emp">
+     {{x.salary | currency: 'Rs.' }}
+    </li>
+</ul>
+
+<p>APPLYING NUMBER FILTER</p>
+<ul>
+    <li ng-repeat="x in emp">
+     {{x.salary | number }}
+    </li>
+</ul>
+
+<p>APPLYING ORDERBY FILTER</p>
+<ul>
+    <li ng-repeat="x in emp">
+     {{x.name | orderBy }}
+    </li>
+</ul>
+
+<p>APPLYING LIMIT TO FILTER</p>
+<ul>
+    <li ng-repeat="x in emp">
+     {{x.name | limitTo: 3 }}
+    </li>
+</ul>
+
+</div>
+</body>
+</html>

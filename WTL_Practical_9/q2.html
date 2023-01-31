@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+<body><div ng-app="myApp">
+    <p>Please enter a number : <input type="text" ng-model="number"></p>
+    <p>The number is={{number| ordinal}}</p></div><script>
+     var app = angular.module('myApp', []);
+    app.filter('ordinal', function() {
+    var app = angular.module('myApp', []);
+    return function(number) {
+        if(isNaN(number) || number < 1) {
+            return number;
+} else { var lastDigit = number % 10;
+if(lastDigit === 1) {
+return number + 'st'
+} else if(lastDigit === 2) {
+return number + 'nd'
+} else if (lastDigit === 3) {
+return number + 'rd'
+} else if (lastDigit > 3) {
+return number + 'th'
+}}}});
+</script></body></html>

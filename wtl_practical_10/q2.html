@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Example - example-ng-mousedown-production</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-app="">
+<button ng-mousedown="cou	nt = count + 1" ng-init="count=0" ng-mouseup="left = left +1" ng-init="left=0">
+Increment count on click.
+</button><br>
+count: {{count}}
+<br><br>
+Mouse left after clicking button: {{left}}
+<br>
+<img ng-mousemove="move = move+ 1" ng-init="move=0" ng-mouseover="over = over + 1" ng-init="over=0" ng-mouseenter="mh = mh+ 1" ng-init="mh=0" ng-mouseleave="count1 = count1 + 1" ng-init="count1=0"  ng-mouseover="myFunction()" src="hover.png"></img>
+   <br> 
+mousehover:{{mh}}        
+<br>
+MouseLeave: {{count1}}   
+<br>
+MouseMoved: {{move}}    
+<br>
+Mouse over the image :{{over}}
+</body>
+</html>

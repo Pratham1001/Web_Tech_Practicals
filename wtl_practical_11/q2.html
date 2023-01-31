@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script>
+            var app = angular.module('myApp', []);
+            app.controller('myCtrl', function($scope) {
+               
+                $scope.products = ["Oil", "Butter", "Milk"];
+                $scope.addItem = function () {
+                $scope.products.push($scope.addMe);
+            }
+            });
+        </script>
+    </head>
+    <body>
+        <div ng-app="myApp" ng-controller="myCtrl">
+            <ul>
+            <li ng-repeat="x in products">{{x}}</li>
+              </ul>
+              <input ng-model="addMe">
+              <button ng-click="addItem()">Add</button>
+            </div>
+    </body>
+</html>

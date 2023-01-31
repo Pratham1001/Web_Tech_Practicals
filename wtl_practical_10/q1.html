@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<script
+src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+<body ng-app="myApp" ng-controller="myCtrl">
+<h1 ng-style="myObj">Skye</h1>
+<h3 ng-style="style">I am from australia</h3>
+<script>
+var app = angular.module("myApp", []);
+app.controller("myCtrl", function($scope) {
+$scope.myObj = {
+"color" : "white",
+"background-color" : "green",
+"font-size" : "60px",
+"padding" : "50px"
+}
+$scope.style = {
+"color" : "white",
+"background-color" : "black",
+"font-size" : "40px",
+"padding" : "20px"
+}
+});
+</script>
+</body>
+</html>

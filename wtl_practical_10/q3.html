@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+<body ng-app="">
+    <input ng-keydown="count = count + 1" ng-init="count=0" ng-keypress="count1 = count1 + 1" ng-init="count1=0" ng-keyup="count2 = count2 + 1" ng-init="count2=0"  />
+
+    <p>THIS IS FOR KEY DOWN:{{count}}</p>
+    <p>THIS IS FOR KEY PRESS:{{count1}}</p>
+    <p>THIS IS FOR KEY UP:{{count2}}</p>
+    
+</body>
+</html>

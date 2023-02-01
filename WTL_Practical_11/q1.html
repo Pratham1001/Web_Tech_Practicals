@@ -3,20 +3,20 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
 <body ng-app = 'myApp'>
 
-    <div ng-controller ="myctrl">
-       
-        <button ng-click="Display()">Show the data:</button>
-        <span>
-            {{names}}<br>
-            {{obj}}
-        </span>
+  <div ng-controller ="myctrl">
+
+<button ng-click="Display()">Show the data:</button>
+<span>
+{{names}}<br>
+{{obj}}
+</span>
 <script>
     var app = angular.module('myApp', []);
     app.controller('myctrl', function($scope){
         
-        $scope.Display= function(){
-            $scope.obj = 'STUDENTS OF MCA'
-        $scope.names =["Pratham",  "omkar", "Dan"];
+         $scope.Display= function(){
+            $scope.obj = {name:'Prathamesh', age:21,class:'MCA1B'}        
+            $scope.names =["Prathamesh",  "Nitish", "Pratham"];
         };
     });
 </script>

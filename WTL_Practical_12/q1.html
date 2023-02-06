@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Create a registration form for a college event containing fname, lname, gender, class, dept, type of event, contact, email . Apply validations(maximum possible), on button click display all data accepted from the user in a proper format in Angularjs 1.7.8 -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+<script> var app = angular.module("myApp", []);
+  app.controller("myCtrl", function ($scope) {
+    $scope.studentArray = []; $scope.divStyle = { visibility: 'unset' };
+    $scope.event = {}; $scope.type = ["Chess", "Carrom", "Table Tennis", "Badminton", "Valorant"];
+    $scope.dept = ["MCA", "Instrumentation", "Mechanical", "Civil", "Electrical", "Electronics", "Computer Science", "Information Technology"];
+    $scope.opStyle = { visibility: 'hidden', };
+    $scope.print = () => { $scope.divStyle.visibility = 'hidden'; $scope.opStyle.visibility = 'unset'; };
+  }); </script>
+
+<head>
+  <title>Sports Competition</title>
+</head>
+
+<body ng-app="myApp" ng-submit="print() ">
+  <div ng-controller="myCtrl">
+    <h1>Sports Registration</h1>
+    <h3>Fill the Registration Form</h3>
+    <form name="registrationForm" ng-submit="print()">
+      <div ng-style="divStyle">
+        <table>
+          <tr>
+            <td>First Name</td>
+            <td> <input type="text" name="firstName" id="fName" ng-model="event.fname" ng-minlength="3"
+                ng-maxlength="20" ng-required="true" /> </td>
+            <td> <span ng-show="registrationForm.firstName.$touched && registrationForm.firstName.$error.required">
+                First Name is required. </span> <span
+                ng-show="registrationForm.firstName.$touched && registrationForm.firstName.$error.minlength"> First Name
+                cannot be shorter than 3 characters. </span> <span
+                ng-show="registrationForm.firstName.$touched && registrationForm.firstName.$error.maxlength"> First Name
+                cannot be more than 20 characters. </span> </td>
+          </tr>
+          <tr>
+            <td>Last Name</td>
+            <td> <input type="text" name="lastName" id="lName" ng-model="event.lname" ng-minlength="3" ng-maxlength="20"
+                ng-required="true" /> </td>
+            <td> <span ng-show="registrationForm.lastName.$touched && registrationForm.lastName.$error.required"> Last
+                Name is required. </span> <span
+                ng-show="registrationForm.lastName.$touched && registrationForm.lastName.$error.minlength"> Last Name
+                cannot be shorter than 3 characters. </span> <span
+                ng-show="registrationForm.lastName.$touched && registrationForm.lastName.$error.maxlength"> Last Name
+                cannot be more than 20 characters. </span> </td>
+          </tr>
+          <tr>
+            <td>Gender</td>
+            <td> Male <input type="radio" name="gender" id="male" value="Male" ng-model="event.gender"
+                ng-required="true"> Female <input type="radio" name="gender" id="female" value="Female"
+                ng-model="event.gender" ng-required="true"> </td>
+            <td> <span ng-show="registrationForm.gender.$touched && registrationForm.gender.$error.required"> Gender is
+                required. </span> </td>
+          </tr>
+          <tr>
+            <td>Department</td>
+            <td> <select name="department" id="dept" ng-model="event.dept">
+                <option value="">Select Department</option>
+                <option ng-repeat="x in dept">{{x}}</option>
+              </select> </td>
+            <td> <span ng-show="registrationForm.department.$touched && registrationForm.department.$error.required">
+                Department is required. </span> </td>
+          </tr>
+          <tr>
+            <td>Class</td>
+            <td> <input type="text" ng-model="event.class" name="class" id="class" ng-required="true" ng-maxlength="6"
+                ng-minlength="4"> </td>
+            <td> <span ng-show="registrationForm.class.$touched && registrationForm.class.$error.required" Class is
+                required. </span> <span
+                  ng-show="registrationForm.class.$touched && registrationForm.class.$error.minlength"> Class cannot be
+                  shorter than 4 characters. </span> <span
+                  ng-show="registrationForm.class.$touched && registrationForm.class.$error.maxlength"> Class cannot be
+                  more than 6 characters. </span> </td>
+          </tr>
+          <tr>
+            <td>Type Of Event</td>
+            <td><select name="eventType" id="type" ng-model="event.type">
+                <option ng-repeat="x in type">{{x}}</option>
+              </select> </td>
+            <td> <span ng-show="registrationForm.eventType.$touched && registrationForm.eventType.$error.required">
+                Event is required. </span> </td>
+          </tr>
+          <tr>
+            <td>Contact No</td>
+            <td> <input type="text" name="contact" id="contact" ng-model="event.contact" /> </td>
+            <td> <span ng-show="registrationForm.contact.$touched && registrationForm.contact.$error.required"> Contact
+                no is required. </span> </td>
+          </tr>
+          <tr>
+            <td>Email</td>
+            <td> <input type="email" name="email" id="email" ng-model="event.email" />
+            <td> <span ng-show="registrationForm.email.$touched && registrationForm.email.$error.required"> Email is
+                required. </span> <span
+                ng-show="registrationForm.email.$touched && registrationForm.email.$error.email"> Email should be valid.
+              </span> </td>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><input type="submit" value="Submit" ng-click="print()"></td>
+          </tr>
+        </table>
+    </form>
+  </div>
+  <div ng-style="opStyle">
+    <table>
+      <tr>
+        <td>First Name</td>
+        <td> {{event.fname}} </td>
+      </tr>
+      <tr>
+        <td>Last Name</td>
+        <td> {{event.lname}} </td>
+      </tr>
+      <tr>
+        <td>Gender</td>
+        <td> {{event.gender}} </td>
+      </tr>
+      <tr>
+        <td>Class</td>
+        <td> {{event.class}} </td>
+      </tr>
+      <tr>
+        <td>Department</td>
+        <td> {{event.dept}} </td>
+      </tr>
+      <tr>
+        <td>Type Of Event</td>
+        <td> {{event.type}} </td>
+      </tr>
+      <tr>
+        <td>Contact No</td>
+        <td> {{event.contact}} </td>
+      </tr>
+      <tr>
+        <td>Email</td>
+        <td> {{event.email}} </td>
+      </tr>
+    </table>
+  </div>
+  </div>
+</body>
+
+</html>

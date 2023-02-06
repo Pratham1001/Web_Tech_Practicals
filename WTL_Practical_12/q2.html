@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Form</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<style>
+  span {
+    color: skyblue;
+  }
+
+  body {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 3px solid black;
+    width: 50%;
+    height: 30%;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 60%;
+    left: 0;
+  }
+
+  h3 {
+    color: red;
+  }
+</style>
+
+<body ng-app="myApp" ng-controller="myController">
+  <h3>LOGIN PAGE</h3>
+  <form name="myForm"> <label for="username">Username</label> <input type="text" ng-model="username" name="username"
+      ng-required="true"> <span ng-show="myForm.username.$touched && myForm.username.$error.required">Required</span>
+    <br><br> <label for="password">Password</label> <input type="password" name="password" ng-model="password"
+      ng-required="true" validate-password> <span
+      ng-show="myForm.password.$touched && myForm.password.$error.required">Required</span> <span
+      ng-show="myForm.password.$error.password">Minimum 8 characters</span><br><br> <button type="submit"
+      ng-click="formSubmit()" style="color: green; font-weight: bold;">Log In</button>
+  </form>
+  <script> var app = angular.module('myApp', []); app.controller('myController', function ($scope, $window) {
+      $scope.formSubmit = function () {
+        if (typeof ($scope.username) == "undefined" || ($scope.username == "") || ($scope.password == "")) { $window.alert("Fill all details please ."); return; } $window.alert("Login Successfully"); window.location.reload();
+      };
+    });
+    app.directive('validatePassword', function () { return { require: 'ngModel', link: function (scope, element, attrs, ngModel) { ngModel.$validators.password = function (modelValue, viewValue) { var value = modelValue || viewValue; return value.length >= 8; }; } }; }); </script>
+</body>
+
+</html>
